@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-
 // IMPORTANT: Remplace cette chaîne par le vrai base64 (très long) pour afficher l'image
 const INLINE_IMG =
   "data:image/webp;base64,UklGRhAAAABXRUJQVlA4WAoAAAAQAAAAMwAAMwAAQUxQSC0AAAABYktHRAC7AADIAAAAABgAAAAAAAAAAAAAAPYAAAD+/////wAAAD+/////wAAAAAAAAAAAAAA..."; // ← À remplacer
