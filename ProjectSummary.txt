@@ -1,0 +1,82 @@
+Project Summary 
+We are launching a single-page, high-end landing site that showcases the 
+NeonCube product line and collects pre-orders. 
+The site must be: 
+● Visually premium (chrome, blue neon seams, black background). 
+● Mobile-optimized and fast-loading. 
+● Fully functional with pre-order form submissions working from day one. 
+Site Structure 
+1. 
+Hero – Product image, headline, subtext, CTA (“Choose your NeonCube”). 
+2. Models – 3 product cards (S, M, X) with specs, VAT-inclusive pricing, 
+“Pre-order” button. 
+3. Gallery – Close-up visuals and craftsmanship story. 
+4. Specs – Materials, thermals, connectivity. 
+5. Testimonial – One quote for trust. 
+6. FAQ – 3 key answers. 
+7. Lead Capture Modal – Opens from any pre-order button, fields: 
+○ Name 
+○ Email 
+○ Phone (optional) 
+○ Delivery city 
+○ Hidden model field (pre-filled) 
+8. Mobile Sticky CTA – Always shows selected model + pre-order button. 
+9. Footer – Copyright. 
+
+Tech & Tools 
+● Framework: React + Tailwind CSS (code already available). 
+● Hosting: Vercel (free). 
+● Version Control: GitHub. 
+● Form Handling: Formspree (free tier). 
+● Domain: Namecheap or Porkbun. 
+● Analytics: Google Analytics or Plausible (optional). 
+Your Step-by-Step Tasks 
+Day 1 – Setup 
+1. 
+Create a GitHub repo neoncube-site. 
+2. Push the existing code into it. 
+3. Connect the repo to Vercel and set up: 
+○ main branch → production. 
+○ Automatic deploys. 
+4. Buy domain (Namecheap/Porkbun) → connect DNS to Vercel (SSL 
+auto-provisioned). 
+Day 2–3 – Build 
+1. 
+Replace INLINE_IMG with full base64 hero/gallery image or host on 
+Cloudinary. 
+2. Finalize content (specs, prices, VAT label, copy). 
+3. Style to match premium/luxury aesthetic. 
+4. Ensure responsive design on mobile & desktop. 
+5. Make sure sticky mobile CTA works. 
+ 
+Day 4 – Integrate Form 
+1. 
+Create a free Formspree account. 
+2. Get endpoint URL and replace form submit handler in modal: 
+fetch("https://formspree.io/f/XXXXXXX", { 
+method: "POST", 
+body: new FormData(formElement) 
+}) 
+.then(() => alert("Thanks! We'll reach out within 24 hours.")) 
+.catch(() => alert("Submission failed. Please email us instead.")); 
+3. Test submission → confirm email notification received. 
+Day 5 – QA & Launch 
+1. 
+Test on Chrome, Safari, Firefox, mobile browsers. 
+2. Check all links, buttons, images, and forms. 
+3. Check load speed (Lighthouse or GTmetrix). 
+4. Merge to main → Vercel auto-deploys live site. 
+Cost 
+● Hosting: $0 (Vercel free). 
+● Formspree: $0 (free tier). 
+
+● Domain: ~$12/year. 
+Deliverable: 
+A live, fully functional NeonCube landing page on the custom domain, ready for 
+ads and pre-orders. 
+Once complete, send me: 
+● Live URL 
+● Form submission test result 
+● GitHub repo link 
+Let me know if you have any blockers — but the expectation is one week from 
+start to full launch.
