@@ -25,6 +25,105 @@ body {
 }
 
 
+/* ====== Burger & menu mobile (respecte la charte) ====== */
+
+
+/* Bouton burger (masqué desktop) */
+
+.nav-burger {
+    display: none;
+    margin-left: 0.5rem;
+    width: 44px;
+    height: 44px;
+    backdrop-filter: blur(10px);
+    background: transparent;
+    cursor: pointer;
+    align-items: center;
+    justify-content: right;
+}
+
+.nav-burger .burger-line {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #fff;
+    opacity: 0.9;
+    margin: 2px 0;
+}
+
+.nav-burger .burger-svg {
+    width: 30px;
+    height: 30px;
+    opacity: .95;
+    display: block;
+}
+
+@media (max-width:768px) {
+    .nav-cta {
+        display: none;
+    }
+    .nav-burger {
+        z-index: 1300;
+    }
+}
+
+
+/* Panneau mobile (caché par défaut) */
+
+.nav-drawer {
+    position: fixed;
+    top: 70px;
+    /* sous ta nav fixe */
+    right: 16px;
+    width: min(85vw, 320px);
+    z-index: 1200;
+    display: none;
+    /* remplacé par .active */
+    padding: 12px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.812);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.nav-drawer.active {
+    display: block;
+}
+
+.nav-drawer a {
+    display: block;
+    padding: 10px 12px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-drawer a:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-drawer .drawer-cta {
+    margin-top: 6px;
+    text-align: center;
+    background: #fff;
+    color: #000;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+
+/* Responsive : montrer le burger quand .nav-links sont masqués */
+
+@media (max-width: 768px) {
+    .nav-burger {
+        display: inline-flex;
+    }
+    /* garde ton design : .nav-links est déjà display:none en mobile */
+}
+
+
 /* Navigation */
 
 .nav {
@@ -46,22 +145,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-.logo-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #3b82f6, #06b6d4);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
 }
 
 .nav-links {
@@ -204,6 +287,16 @@ body {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 2rem;
+}
+
+.span {
+    background: linear-gradient(135deg, blue, cyan);
+    -webkit-background-clip: text;
+    /* Clip sur le texte */
+    -webkit-text-fill-color: transparent;
+    /* Rend le texte transparent pour voir le gradient */
+    background-clip: text;
+    /* Support pour certains navigateurs */
 }
 
 .highlight {
@@ -405,7 +498,7 @@ body {
 .model-card:hover {
     transform: translateY(-5px);
     border-color: rgba(59, 130, 246, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 110, 253, 0.2);
 }
 
 .model-card.featured {
@@ -432,12 +525,11 @@ body {
 
 .model-badge {
     display: inline-block;
-    background: rgba(6, 182, 212, 0.2);
-    color: #06b6d4;
-    padding: 0.25rem 0.75rem;
+    padding: 0.25rem 0rem;
     border-radius: 50px;
     font-size: 0.8rem;
     margin-bottom: 1rem;
+    color: rgb(0, 187, 255);
 }
 
 .model-header h3 {
@@ -464,17 +556,7 @@ body {
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
 }
 
-.model-cube.small {
-    width: 60px;
-    height: 80px;
-}
-
-.model-cube.medium {
-    width: 80px;
-    height: 100px;
-}
-
-.model-cube.large {
+.model-cube {
     width: 100px;
     height: 120px;
 }
@@ -537,6 +619,92 @@ body {
 
 /* Gallery Section */
 
+
+/* Gallery Section */
+
+
+/* --- Gallery : forcer les autres photos sous le bloc photo+texte --- */
+
+
+/* Ce sélecteur indique au 3e enfant (gallery-extra) d'occuper toute la grille,
+   donc de passer SOUS les 2 colonnes de la 1ère rangée */
+
+.gallery-grid>.gallery-extra {
+    grid-column: 1 / -1;
+    /* prend toute la largeur de la grille */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* 2 colonnes en desktop */
+    gap: 1rem;
+    align-items: stretch;
+}
+
+
+/* Images de la sous-grille : fluides, hauteur homogène, recadrage propre */
+
+.gallery-grid>.gallery-extra img.chrome-panel {
+    width: 100%;
+    height: 360px;
+    /* ajuste si tu veux des vignettes plus/moins hautes */
+    object-fit: cover;
+    /* La classe .chrome-panel de base fixe largeur/hauteur 580px.
+     On l'override ici pour rendre les vignettes fluides. */
+}
+
+
+/* Responsive : 1 seule colonne sous 1024px */
+
+@media (max-width: 1024px) {
+    .gallery-grid>.gallery-extra {
+        grid-template-columns: 1fr;
+    }
+    .gallery-grid>.gallery-extra img.chrome-panel {
+        height: 280px;
+    }
+}
+
+
+/* (Option recommandé) – si tu veux t’assurer que les images principales
+   restent bien fluides sans “forcer” 580px, tu peux aussi ajouter : */
+
+.gallery .gallery-image img.chrome-panel {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-lead-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* garde le rendu propre dans la carte chrome-panel */
+}
+
+
+/* Rangée 2 : autres photos en grille */
+
+.gallery-subgrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+    .gallery-lead {
+        grid-template-columns: 1fr;
+    }
+    .gallery-subgrid {
+        grid-template-columns: 1fr;
+        /* 1 image par ligne sur mobile/tablette */
+    }
+    .gallery-subgrid img {
+        height: 280px;
+    }
+}
+
 .gallery {
     padding: 6rem 0;
 }
@@ -556,8 +724,8 @@ body {
 }
 
 .chrome-panel {
-    width: 580px;
-    height: 580px;
+    width: 100%;
+    height: auto;
     background: linear-gradient(135deg, #2a2a2a, #1a1a1a, #2a2a2a);
     border: 2px solid rgba(59, 130, 246, 0.3);
     border-radius: 20px;
@@ -860,10 +1028,11 @@ body {
     color: white;
     border: none;
     padding: 1rem;
-    border-radius: 12px;
+    border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
 .submit-btn:hover {
@@ -888,6 +1057,9 @@ body {
     }
     .models-grid {
         grid-template-columns: 1fr;
+    }
+    .gallery-content {
+        text-align: center;
     }
     .gallery-grid {
         grid-template-columns: 1fr;
@@ -1322,5 +1494,69 @@ body {
     .testimonial-content p::before,
     .testimonial-content p::after {
         font-size: 3rem;
+    }
+}
+
+
+/* ===============================================
+   Tweaks per request (logo bigger + responsive hero video)
+   =============================================== */
+
+
+/* 1) Logo bigger (desktop & mobile), keep same gradient & shadow */
+
+.logo-icon {
+    width: 150px;
+    height: auto;
+}
+
+@media (max-width: 480px) {
+    .logo-icon {
+        width: 90px;
+        height: auto;
+    }
+}
+
+
+/* 2) On mobile/tablet: place HERO video BELOW the title/text,
+      and show the RIGHT side of the video frame (not centered). */
+
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        /* stack children vertically */
+        align-items: stretch;
+        min-height: auto;
+        /* avoid forced full viewport height */
+    }
+    .hero-content {
+        order: 1;
+    }
+    /* text first */
+    .hero-video {
+        order: 1;
+        /* video second, under text */
+        position: static;
+        /* leave normal flow (no absolute bg) */
+        z-index: auto;
+        width: 50%;
+        height: 360px;
+        /* controlled height for phones/tablets */
+        object-fit: cover;
+        object-position: right center;
+        /* show right side of the video */
+        border-radius: 18px;
+        /* matches your card radiuses */
+        margin: 3rem auto 0;
+        display: block;
+    }
+}
+
+
+/* Smaller phones: slightly reduce hero video height */
+
+@media (max-width: 640px) {
+    .hero-video {
+        height: 300px;
     }
 }

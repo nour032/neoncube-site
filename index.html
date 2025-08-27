@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeonCube — Chrome. Light. Silence.</title>
+    <title>Zyra Tech</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="src/flavicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,17 +19,31 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <div class="nav-logo">
-                <div class="logo-icon"></div>
-                <span>NeonCube</span>
+            <div class="nav-drawer" id="navDrawer" hidden>
+                <a href="index.html#design">Design</a>
+                <a href="index.html#models">Models</a>
+                <a href="index.html#specs">Specs</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="index.html#models" class="drawer-cta">Pre-order</a>
             </div>
+
+            <a href="index.html"> <img class="logo-icon" src="src/logo_orion.png" alt="Zyra Tech">
+            </a>
             <div class="nav-links">
-                <a href="#design">Design</a>
-                <a href="#models">Modèles</a>
-                <a href="#specs">Specs</a>
-                <a href="#faq">FAQ</a>
+                <a href="#design" class="hover:text-white">Design</a>
+                <a href="#models" class="hover:text-white">Models</a>
+                <a href="#specs" class="hover:text-white">Specs</a>
+                <a href="#faq" class="hover:text-white">FAQ</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
+
             </div>
-            <a href="#models" class="nav-cta">Pré-commander</a>
+            <a href="#models" class="nav-cta">Pre-order</a>
+
+            <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+                <img style="color:white;" src="src/burger-menu-right-svgrepo-com.svg" alt="menu" class="burger-svg"/>
+            </button>
+
         </div>
     </nav>
 
@@ -48,11 +63,11 @@
 
 
                 <h1 class="hero-title">
-                    Chrome. Light. silence.
+                    Chrome. Light.<span class="span"> Silence.</span>
                 </h1>
 
                 <div class="hero-buttons">
-                    <a href="#models" class="btn-primary">Choose your NeonCube</a>
+                    <a href="#models" class="btn-primary">Explore Orion</a>
                     <button class="btn-secondary">
                         See the details
                     </button>
@@ -62,12 +77,10 @@
                     A luxury desktop that looks like a gallery piece. No side vents. Seamless chrome panels with soft blue neon seams. A single centered foot makes it appear to float.
                 </p>
                 <div class="hero-categories">
+                    <svg style="width:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4"><path d="M12 22s8-3 8-10V5l-8-3-8 3v7c0 7 8 10 8 10z"/></svg>
                     <p>2‑year premium warranty • White‑glove delivery in Metro Manila</p>
-
                 </div>
             </div>
-
-
         </div>
     </section>
 
@@ -82,13 +95,14 @@
             <div class="models-grid">
                 <div class="model-card" data-model="S">
                     <div class="model-header">
-                        <div class="model-badge">7 × 20 × 40 cm</div>
-                        <h3>NeonCube S</h3>
+                        <svg style="width: 20px; color:rgb(0, 187, 255); margin-right:10px;margin-top:10px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4 text-cyan-300"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 3l.8 2.2L22 6l-2.2.8L19 9l-.8-2.2L16 6l2.2-.8L19 3zM4 14l.6 1.6L6 16l-1.4.4L4 18l-.6-1.6L2 16l1.4-.4L4 14z"/></svg>
+                        <span class="model-badge text-sm">7 × 20 × 40 cm</span>
+                        <h3>Orion Mini</h3>
                         <p>Silent power in a sleek design</p>
                     </div>
 
                     <div class="model-visual">
-                        <div class="model-cube small"></div>
+                        <div class="model-cube"></div>
                     </div>
 
                     <div class="model-specs">
@@ -99,23 +113,24 @@
                     </div>
 
                     <div class="model-price">
-                        <span class="price">$79,990</span>
+                        <span class="price">₱79,990</span>
                         <span class="vat">VAT‑inclusive</span>
                     </div>
 
-                    <button class="model-btn">Pre-order S</button>
+                    <button class="model-btn">Pre-order Mini</button>
                 </div>
 
                 <div class="model-card featured" data-model="M">
                     <div class="featured-badge">Recommended</div>
                     <div class="model-header">
-                        <div class="model-badge">9 × 24 × 45 cm</div>
-                        <h3>NeonCube M</h3>
+                        <svg style="width: 20px; color:rgb(0, 187, 255); margin-right:10px;margin-top:10px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4 text-cyan-300"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 3l.8 2.2L22 6l-2.2.8L19 9l-.8-2.2L16 6l2.2-.8L19 3zM4 14l.6 1.6L6 16l-1.4.4L4 18l-.6-1.6L2 16l1.4-.4L4 14z"/></svg>
+                        <span class="model-badge text-sm">9 × 24 × 45 cm</span>
+                        <h3>Orion Plus</h3>
                         <p>Creator class, always ready for the gallery</p>
                     </div>
 
                     <div class="model-visual">
-                        <div class="model-cube medium"></div>
+                        <div class="model-cube"></div>
                     </div>
 
                     <div class="model-specs">
@@ -126,22 +141,23 @@
                     </div>
 
                     <div class="model-price">
-                        <span class="price">$1,099.99</span>
+                        <span class="price">₱109,990</span>
                         <span class="vat">VAT‑inclusive</span>
                     </div>
 
-                    <button class="model-btn">Pre-order M</button>
+                    <button class="model-btn">Pre-order Plus</button>
                 </div>
 
                 <div class="model-card" data-model="X">
                     <div class="model-header">
-                        <div class="model-badge">11 × 28 × 50 cm</div>
-                        <h3>NeonCube X</h3>
+                        <svg style="width: 20px; color:rgb(0, 187, 255); margin-right:10px; margin-top:10px; " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4 text-cyan-300"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 3l.8 2.2L22 6l-2.2.8L19 9l-.8-2.2L16 6l2.2-.8L19 3zM4 14l.6 1.6L6 16l-1.4.4L4 18l-.6-1.6L2 16l1.4-.4L4 14z"/></svg>
+                        <span class="model-badge text-sm">11 × 28 × 50 cm</span>
+                        <h3>Orion Max</h3>
                         <p>Flagship performance, art piece design</p>
                     </div>
 
                     <div class="model-visual">
-                        <div class="model-cube large"></div>
+                        <div class="model-cube"></div>
                     </div>
 
                     <div class="model-specs">
@@ -152,11 +168,11 @@
                     </div>
 
                     <div class="model-price">
-                        <span class="price">$1,699.99</span>
+                        <span class="price">₱169,990</span>
                         <span class="vat">VAT‑inclusive</span>
                     </div>
 
-                    <button class="model-btn">Pre-order X</button>
+                    <button class="model-btn">Pre-order Max</button>
                 </div>
             </div>
         </div>
@@ -168,7 +184,7 @@
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <div class="gallery-image">
-                        <div><img class="chrome-panel" src="src/laptop.png"></div>
+                        <img class="chrome-panel" src="src/laptop.png">
                     </div>
                 </div>
                 <div class="gallery-content">
@@ -186,6 +202,13 @@
                             <span>The perfect luxury gift — a statement piece spouses actually want on display.</span>
                         </div>
                     </div>
+                </div>
+                <!-- Rangée 2 : autres photos en grille -->
+                <div class="gallery-extra">
+                    <img class="chrome-panel" src="src/laptop2.jpeg" alt="Orion — détail chrome" loading="lazy">
+                    <img class="chrome-panel" src="src/laptop3.jpeg" alt="Orion — pied central flottant" loading="lazy">
+                    <!-- Tu peux en ajouter d’autres si besoin -->
+                    <!-- <img class="chrome-panel" src="src/laptop4.jpg" alt="..." loading="lazy"> -->
                 </div>
             </div>
         </div>
@@ -426,12 +449,12 @@
     <div class="modal" id="preorderModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Pré-commander votre NeonCube</h3>
+                <h3>Pre-order your Orion</h3>
                 <button class="modal-close">&times;</button>
             </div>
             <form class="preorder-form">
                 <div class="form-group">
-                    <label>Nom complet</label>
+                    <label>Full name</label>
                     <input type="text" name="name" required>
                 </div>
                 <div class="form-group">
@@ -439,15 +462,15 @@
                     <input type="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label>Téléphone (optionnel)</label>
+                    <label>Phone number (optional)</label>
                     <input type="tel" name="phone">
                 </div>
                 <div class="form-group">
-                    <label>Ville de livraison</label>
+                    <label>Delivery city</label>
                     <input type="text" name="city" required>
                 </div>
                 <input type="hidden" name="model" id="selectedModel">
-                <button type="submit" class="submit-btn">Confirmer la pré-commande</button>
+                <button type="submit" class="submit-btn">Confirm your pre-order</button>
             </form>
         </div>
     </div>
